@@ -3,13 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Fun Facts Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Indian Politics Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .fact-display {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .fact-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .fact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Fun Facts About Web Development!</h1>
-    <div id="fact-display">Click here!</div>
-    <button onclick="generateFact()">Generate Fact</button>
-    <script src="script.js"></script>
+    <div class="container">
+        <h1>Facts about Indian Politics</h1>
+        <div class="fact-display" id="factDisplay">Click the button to see a fact!</div>
+        <button class="fact-button" id="nextFactButton">Next Fact</button>
+    </div>
+
+    <script>
+        const facts = [
+            "India is the world's largest democracy, with over 1.3 billion citizens eligible to vote.",
+            "The Indian Parliament is bicameral, consisting of the Lok Sabha (House of the People) and the Rajya Sabha (Council of States).",
+            "The President of India is the ceremonial head of state, while the Prime Minister is the head of government.",
+            "India has a multi-party system, with the Bharatiya Janata Party (BJP) and the Indian National Congress (INC) being the two dominant parties.",
+            "Elections in India are conducted by the Election Commission of India, an autonomous constitutional authority.",
+            "The first general elections in India were held in 1951-52, marking the beginning of the democratic process.",
+            "India's political landscape is influenced by regional parties, which play a significant role in state politics.",
+            "The Constitution of India, adopted in 1950, provides the framework for political governance and fundamental rights.",
+            "India has a unique system of coalition politics, where multiple parties often come together to form a government.",
+            "The Indian judiciary is independent and has the power to review laws and executive actions for constitutionality."
+        ];
+
+        let currentFactIndex = 0;
+
+        document.getElementById('nextFactButton').addEventListener('click', function() {
+            if (currentFactIndex < facts.length) {
+                document.getElementById('factDisplay').innerText = facts[currentFactIndex];
+                currentFactIndex++;
+            } else {
+                document.getElementById('factDisplay').innerText = "No more facts!";
+                this.disabled = true; // Disable button after all facts are shown
+            }
+        });
+    </script>
 </body>
 </html>
